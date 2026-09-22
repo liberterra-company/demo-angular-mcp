@@ -7,15 +7,13 @@ Résultat : l'IA connaît votre workspace, la documentation angular.dev et les b
 
 ## ⚙️ Branchement
 
-Le serveur MCP est intégré au CLI Angular (v20+). Aucune installation supplémentaire : `npx` s'en charge.
+Le serveur MCP est intégré au CLI Angular (v20+). Seul prérequis : **Node.js** (`npx` télécharge et lance le CLI).
 
-### VS Code / GitHub Copilot
-
-Fichier [`.vscode/mcp.json`](.vscode/mcp.json) :
+Quel que soit votre assistant, c'est **le même bloc JSON**, seul l'emplacement du fichier change :
 
 ```json
 {
-  "servers": {
+  "mcpServers": {
     "angular-cli": {
       "command": "npx",
       "args": ["-y", "@angular/cli", "mcp"]
@@ -24,13 +22,15 @@ Fichier [`.vscode/mcp.json`](.vscode/mcp.json) :
 }
 ```
 
-### Claude Code
+| Assistant | Fichier (déjà présent dans ce repo) | Particularité |
+| --- | --- | --- |
+| VS Code / GitHub Copilot | [`.vscode/mcp.json`](.vscode/mcp.json) | la clé racine est `"servers"` au lieu de `"mcpServers"` |
+| Cursor | [`.cursor/mcp.json`](.cursor/mcp.json) | — |
+| Claude Code | [`.mcp.json`](.mcp.json) | — |
+| Gemini CLI | [`.gemini/settings.json`](.gemini/settings.json) | — |
+| JetBrains, Windsurf, autres | paramètres MCP de l'IDE | coller le même bloc JSON |
 
-Fichier [`.mcp.json`](.mcp.json) à la racine (déjà présent dans ce repo), ou en une commande :
-
-```bash
-claude mcp add angular-cli -- npx -y @angular/cli mcp
-```
+👉 Clonez ce repo, ouvrez-le dans votre éditeur, rechargez : le MCP est détecté automatiquement (acceptez la demande d'activation si l'éditeur la propose).
 
 ### Vérifier que le serveur démarre
 
