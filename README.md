@@ -5,6 +5,25 @@ Résultat : l'IA connaît votre workspace, la documentation angular.dev et les b
 
 > Démo proposée par 🦊 **Solafox** — Angular & IA
 
+## 🏁 Démarrage
+
+Ce repo contient un projet **Angular 22** (standalone, signals, zoneless, control flow) prêt à l'emploi :
+
+```bash
+git clone https://github.com/liberterra-company/demo-angular-mcp
+cd demo-angular-mcp
+npm install
+npm start          # http://localhost:4200
+```
+
+La page d'accueil liste les prompts ci-dessous avec un bouton « Copier ». Ouvrez ensuite le projet dans votre éditeur : la config MCP est déjà là.
+
+| Commande | Rôle |
+| --- | --- |
+| `npm start` | serveur de dev |
+| `npm run build` | build de production |
+| `npm test` | tests unitaires (Vitest) |
+
 ## ⚙️ Branchement
 
 Le serveur MCP est intégré au CLI Angular (v20+). Seul prérequis : **Node.js** (`npx` télécharge et lance le CLI).

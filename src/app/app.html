@@ -1,0 +1,28 @@
+<main class="page">
+  <header class="hero">
+    <img src="logo-solafox.png" alt="Solafox" width="72" height="72" />
+    <h1>{{ title() }}</h1>
+    <p>
+      Branchez votre assistant IA sur le serveur MCP du CLI Angular, puis testez ces
+      <strong>{{ promptCount() }} prompts</strong>.
+    </p>
+  </header>
+
+  @for (category of categories(); track category.title) {
+    <section class="category">
+      <h2>{{ category.icon }} {{ category.title }}</h2>
+      <ul>
+        @for (prompt of category.prompts; track prompt) {
+          <li>
+            <span>« {{ prompt }} »</span>
+            <button type="button" (click)="copy(prompt)">
+              {{ copied() === prompt ? 'Copié ✓' : 'Copier' }}
+            </button>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <footer>Démo proposée par 🦊 Solafox — Angular &amp; IA</footer>
+</main>
